@@ -12,13 +12,17 @@ body {
   box-sizing: border-box;
 }
 
+body.dark {
+  background: #161d22;
+  color: white;
+}
+
 header {
   position: relative;
   width: 100%;
   padding: 0.5rem 1rem;
   border-bottom: 2px solid #161d22;
   text-align: center;
-  margin-bottom: 1.5rem;
   background: #ffd4d4;
 }
 
@@ -60,19 +64,68 @@ footer nav li {
   align-items: center;
 }
 
-footer nav li svg {
+footer nav li a {
   width: 1.75rem;
   height: 1.75rem;
 }
 
-body.home main {
+body footer nav li a[href="index.html"] {
+  background-image: url("/quiz_app/assets/project_image/home.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+body.home footer nav li a[href="index.html"] {
+  background-image: url("/quiz_app/assets/project_image/home_filled.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+footer nav li a[href="bookmark.html"] {
+  background-image: url("/quiz_app/assets/project_image/bookmark_transparent.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+body.bookmark footer nav li a[href="bookmark.html"] {
+  background-image: url("/quiz_app/assets/project_image/bookmark_filled.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+footer nav li a[href="profile.html"] {
+  background-image: url("/quiz_app/assets/project_image/profile.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+body.profile footer nav li a[href="profile.html"] {
+  background-image: url("/quiz_app/assets/project_image/profile_filled.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+body.home main,
+body.bookmark main,
+body.profile main {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 0 1.25rem 3.5rem;
+  padding: 1.5rem 1.25rem 4.5rem;
+  background: white;
 }
 
-section.card {
+body.dark main {
+  background: #161d22;
+  color: white;
+}
+
+/***************************
+******* HOME / BOOKMARKS ***
+***************************/
+
+body.home section.card,
+body.bookmark section.card {
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -86,12 +139,18 @@ section.card {
   background: #ffffe8;
 }
 
+body.dark section.card {
+  background: #161d22;
+  color: white;
+  border: 1px solid #ffd4d4;
+}
+
 section.card .bookmark {
   position: absolute;
   right: 1.5rem;
-  top: -1.5rem;
-  width: 40px;
-  height: 50px;
+  top: -1rem;
+  width: 30px;
+  height: 30px;
   z-index: 2;
   background: transparent;
 }
@@ -105,19 +164,36 @@ section.card .bookmark input {
   cursor: pointer;
 }
 
-section.card .bookmark svg {
+section.card .bookmark img {
   width: 100%;
   cursor: pointer;
   height: 100%;
   z-index: 2;
-  color: black;
+  position: absolute;
   pointer-events: none;
-  fill: currentColor;
   transition: all 0.15s ease;
 }
 
-section.card .bookmark input:checked ~ svg {
-  color: #aacb73;
+section.card .bookmark img[src="assets/project_image/bookmark.png"] {
+  opacity: 1;
+}
+
+section.card .bookmark img[src="assets/project_image/bookmark_filled.png"] {
+  opacity: 0;
+}
+
+section.card
+  .bookmark
+  input:checked
+  ~ img[src="assets/project_image/bookmark.png"] {
+  opacity: 0;
+}
+
+section.card
+  .bookmark
+  input:checked
+  ~ img[src="assets/project_image/bookmark_filled.png"] {
+  opacity: 1;
 }
 
 section.card .question {
@@ -182,7 +258,143 @@ section.card .tags li {
   list-style: none;
 }
 
+body.dark section.card .tags li {
+  border: 1px solid #ffd4d4;
+}
+
 section.card .tags li:hover {
   background: white;
   color: #161d22;
+}
+
+/***************************
+*********** PROFILE  *******
+***************************/
+
+section.entry {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  align-items: center;
+  padding: 0.4rem;
+}
+
+section.article p {
+  font-family: monospace;
+  line-height: 1.5;
+}
+
+body.dark section.entry {
+  background: #ffd4d4;
+  color: black;
+  border-radius: 15px;
+}
+
+section.entry img {
+  width: 80px;
+  height: 80px;
+}
+
+section.entry .profile_name {
+  font-family: monospace;
+  font-size: 1.5rem;
+}
+
+section.statistics {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+}
+
+section.statistics img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+section.statistics img[src="assets/project_image/bookmark_filled.png"] {
+  width: 28px;
+}
+
+section.statistics .bookmarks,
+section.statistics .questions {
+  display: flex;
+  padding: 0.25rem 1rem;
+  border: 2px solid #161d22;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 3.5rem;
+  align-items: center;
+  border-radius: 16px;
+  justify-content: space-between;
+}
+
+body.dark section.statistics .bookmarks,
+body.dark section.statistics .questions {
+  color: black;
+  background: #ffd4d4;
+}
+
+section.settings > div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section.settings > div > span,
+section.statistics span.counter {
+  font-family: monospace;
+  font-size: 1rem;
+}
+
+section.settings .controller {
+  width: 50px;
+  height: 25px;
+  border: 2px solid #161d22;
+  border-radius: 20px;
+  position: relative;
+}
+
+body.dark section.settings .controller {
+  border: 2px solid #ffd4d4;
+  color: #ffd4d4;
+}
+
+section.settings .controller input {
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  opacity: 0;
+  cursor: pointer;
+}
+
+section.settings .controller .dot {
+  position: absolute;
+  width: 12px;
+  pointer-events: none;
+  height: 12px;
+  border-radius: 50%;
+  background: black;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0.25rem;
+  transition: all 0.45s ease;
+  right: auto;
+}
+
+section.settings .controller input:checked ~ .dot {
+  left: auto;
+  right: 0.25rem;
+}
+
+section.settings.switch_on .controller {
+  border: 2px solid white;
+  background: #161d22;
+}
+
+section.settings.switch_on .controller .dot {
+  background: #ffd4d4;
 }
