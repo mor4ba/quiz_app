@@ -1,0 +1,18 @@
+header {
+  position: relative;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid var(--primary-dark);
+  text-align: center;
+  background: var(--secondary-color);
+}
+
+header a {
+  text-decoration: none;
+  color: var(--primary-dark);
+  transition: 0.2s ease;
+  line-height: 1.6;
+  font-family: monospace;
+  text-transform: lowercase;
+  font-size: 2rem;
+}

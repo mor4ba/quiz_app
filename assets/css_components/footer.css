@@ -1,0 +1,64 @@
+footer {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-top: 2px solid #161d22;
+  background: #ffd4d4;
+}
+
+footer nav {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: space-around;
+}
+
+footer nav li {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer nav li a {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+body footer nav li a[href="index.html"] {
+  background-image: url("/quiz_app/assets/project_image/home.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+body.home footer nav li a[href="index.html"] {
+  background-image: url("/quiz_app/assets/project_image/home_filled.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+footer nav li a[href="bookmark.html"] {
+  background-image: url("/quiz_app/assets/project_image/bookmark_transparent.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+body.bookmark footer nav li a[href="bookmark.html"] {
+  background-image: url("/quiz_app/assets/project_image/bookmark_filled.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+footer nav li a[href="profile.html"] {
+  background-image: url("/quiz_app/assets/project_image/profile.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+body.profile footer nav li a[href="profile.html"] {
+  background-image: url("/quiz_app/assets/project_image/profile_filled.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}

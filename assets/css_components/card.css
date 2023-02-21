@@ -1,0 +1,142 @@
+body.home section.card,
+body.bookmark section.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  justify-content: center;
+  border-radius: 20px;
+  border: 1px solid var(--primary-dark);
+  position: sticky;
+  top: 30px;
+  box-shadow: 0 6px 12px -2px rgba(50, 50, 93, 0.25),
+    0 3px 7px -3px rgba(0, 0, 0, 0.3);
+  background: var(--primary-color);
+}
+
+body.dark section.card {
+  background: var(--primary-dark);
+  color: var(--primary-white);
+  border: 1px solid var(--secondary-color);
+}
+
+section.card .bookmark {
+  position: absolute;
+  right: 1.5rem;
+  top: -1rem;
+  width: 30px;
+  height: 30px;
+  z-index: 2;
+  background: transparent;
+}
+
+section.card .bookmark input {
+  opacity: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  cursor: pointer;
+}
+
+section.card .bookmark img {
+  width: 100%;
+  cursor: pointer;
+  height: 100%;
+  z-index: 2;
+  position: absolute;
+  pointer-events: none;
+  transition: all 0.15s ease;
+}
+
+section.card .bookmark img[src="assets/project_image/bookmark.png"] {
+  opacity: 1;
+}
+
+section.card .bookmark img[src="assets/project_image/bookmark_filled.png"] {
+  opacity: 0;
+}
+
+section.card
+  .bookmark
+  input:checked
+  ~ img[src="assets/project_image/bookmark.png"] {
+  opacity: 0;
+}
+
+section.card
+  .bookmark
+  input:checked
+  ~ img[src="assets/project_image/bookmark_filled.png"] {
+  opacity: 1;
+}
+
+section.card .question {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  padding: 2rem 1rem 0;
+  font-size: 1.35rem;
+}
+
+section.card button.expandTrigger {
+  display: inline-block;
+  margin: 1rem auto;
+  border: 1px solid var(--primary-dark);
+  padding: 0.5em 1.25rem;
+  text-align: center;
+  cursor: pointer;
+  background: var(--tertiary-color);
+  border-radius: 20px;
+  border: 1px solid var(--primary-dark);
+  transition: all 0.2s ease;
+  font-family: monospace;
+}
+
+section.card button.expandTrigger:hover,
+section.card button.expandTrigger:focus {
+  color: var(--primary-white);
+  background: var(--primary-dark);
+}
+
+section.card .expandContent {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.2s ease;
+  display: block;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+section.card .tags {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  width: 100%;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+section.card .tags li {
+  border: 1px solid var(--primary-dark);
+  background: var(--primary-dark);
+  color: var(--primary-white);
+  padding: 0.3rem 0.6rem;
+  text-align: center;
+  border-radius: 20px;
+  font-family: monospace;
+  text-transform: lowercase;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  list-style: none;
+}
+
+body.dark section.card .tags li {
+  border: 1px solid var(--secondary-color);
+}
+
+section.card .tags li:hover {
+  background: var(--primary-white);
+  color: var(--primary-dark);
+}

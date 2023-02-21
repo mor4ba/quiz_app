@@ -1,0 +1,41 @@
+:root {
+  --primary-color: #ffffe8;
+  --secondary-color: #ffd4d4;
+  --tertiary-color: #aacb73;
+  --primary-dark: #161d22;
+  --primary-white: white;
+}
+
+body * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, sans-serif;
+  line-height: 1.2;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.dark {
+  background: var(--primary-dark);
+  color: var(--primary-white);
+}
+
+body.home main,
+body.bookmark main,
+body.profile main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem 1.25rem 4.5rem;
+  background: var(--primary-white);
+}
+
+body.dark main {
+  background: var(--primary-dark);
+  color: var(--primary-white);
+}

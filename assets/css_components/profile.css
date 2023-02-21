@@ -1,0 +1,78 @@
+section.entry {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  align-items: center;
+  padding: 0.4rem;
+}
+
+section.article p {
+  font-family: monospace;
+  line-height: 1.5;
+}
+
+body.dark section.entry {
+  background: #ffd4d4;
+  color: black;
+  border-radius: 15px;
+}
+
+section.entry img {
+  width: 80px;
+  height: 80px;
+}
+
+section.entry .profile_name {
+  font-family: monospace;
+  font-size: 1.5rem;
+}
+
+section.statistics {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+}
+
+section.statistics img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+section.statistics img[src="assets/project_image/bookmark_filled.png"] {
+  width: 28px;
+}
+
+section.statistics .bookmarks,
+section.statistics .questions {
+  display: flex;
+  padding: 0.25rem 1rem;
+  border: 2px solid #161d22;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 3.5rem;
+  align-items: center;
+  border-radius: 16px;
+  justify-content: space-between;
+}
+
+body.dark section.statistics .bookmarks,
+body.dark section.statistics .questions {
+  color: black;
+  background: #ffd4d4;
+}
+
+section.settings > div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section.settings > div > span,
+section.statistics span.counter {
+  font-family: monospace;
+  font-size: 1rem;
+}

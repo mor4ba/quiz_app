@@ -1,0 +1,48 @@
+section.settings .controller {
+  width: 50px;
+  height: 25px;
+  border: 2px solid var(--primary-dark);
+  border-radius: 20px;
+  position: relative;
+}
+
+body.dark section.settings .controller {
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+section.settings .controller input {
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  opacity: 0;
+  cursor: pointer;
+}
+
+section.settings .controller .dot {
+  position: absolute;
+  width: 12px;
+  pointer-events: none;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary-dark);
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0.25rem;
+  transition: all 0.45s ease;
+  right: auto;
+}
+
+section.settings .controller input:checked ~ .dot {
+  left: auto;
+  right: 0.25rem;
+}
+
+section.settings.switch_on .controller {
+  border: 2px solid var(--primary-white);
+  background: var(--primary-dark);
+}
+
+section.settings.switch_on .controller .dot {
+  background: var(--secondary-color);
+}
