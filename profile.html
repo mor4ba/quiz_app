@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body class="profile">
-    <header>
+    <header id="header">
       <h1><a href="index.html">Quiz me baby</a></h1>
     </header>
     <main>
@@ -47,7 +47,7 @@
         <div>
           <span>dark-mode</span>
           <div class="controller">
-            <input type="checkbox" />
+            <input type="checkbox" aria-labelledby="switch-dark-mode" />
             <span class="dot"></span>
           </div>
         </div>
@@ -61,12 +61,17 @@
           >
         </li>
         <li>
-          <a href="profile.html"
+          <a href="profile.html" link-name="profile-page"
             ><span class="show-for-sr">Link to profile.html</span>
           </a>
         </li>
         <li>
-          <a href="index.html"
+          <a href="add.html" link-name="add-question-page"
+            ><span class="show-for-sr">Link to add.html</span></a
+          >
+        </li>
+        <li>
+          <a href="index.html" link-name="homepage"
             ><span class="show-for-sr">Link to index.html</span>
           </a>
         </li>
