@@ -14,9 +14,11 @@ function toggleAccordion() {
       content.getAttribute("data-expanded");
       if (content.getAttribute("data-expanded") == "false") {
         content.style.height = height + "px";
+        expand.innerHTML = "hide answer";
         content.setAttribute("data-expanded", true);
       } else {
         content.style.height = "0px";
+        expand.innerHTML = "show answer";
         content.setAttribute("data-expanded", false);
       }
     });
