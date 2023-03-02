@@ -98,6 +98,9 @@ section.card .expandContent {
   padding: 0 1rem;
   text-align: center;
   margin-bottom: 1rem;
+  font-family: monospace;
+  text-transform: uppercase;
+  font-size: 1.4rem;
 }
 
 section.card .tags {
