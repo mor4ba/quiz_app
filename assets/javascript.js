@@ -41,62 +41,67 @@ if (bodyWrapper) {
  */
 
 const form = document.querySelector("form.add-question");
-const logOutputQuestion = document.querySelector(
-  "span.remaining-letters.question"
-);
-const logOutputAnswer = document.querySelector("span.remaining-letters.answer");
-const textAreaQuestion = document.querySelector(
-  'textarea[name="question_name"]'
-);
-const textAreaAnswer = document.querySelector(
-  'textarea[name="question_answer"]'
-);
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const data = Object.fromEntries(new FormData(event.target));
-  addQuestionElement(data);
-  event.target.reset();
-});
+if (form) {
+  const logOutputQuestion = document.querySelector(
+    "span.remaining-letters.question"
+  );
+  const logOutputAnswer = document.querySelector(
+    "span.remaining-letters.answer"
+  );
+  const textAreaQuestion = document.querySelector(
+    'textarea[name="question_name"]'
+  );
+  const textAreaAnswer = document.querySelector(
+    'textarea[name="question_answer"]'
+  );
 
-function addQuestionElement(data) {
-  const node = document.querySelector("section.card.hidden");
-  let clone = node.cloneNode(true);
-  clone.classList.remove("hidden");
-  clone.querySelector(".question").innerHTML = data.question_name;
-  clone.querySelector(".answer").innerHTML = data.question_answer;
-  clone.querySelector(".tags").innerHTML = `<li>#${data.question_tags}</li>`;
-  document.querySelector("section.wrapper").append(clone);
-}
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const data = Object.fromEntries(new FormData(event.target));
+    addQuestionElement(data);
+    event.target.reset();
+  });
 
-textAreaQuestion.addEventListener("input", (event) => {
-  let currentLength = event.target.value.length;
-  logOutputQuestion.innerHTML = `${150 - currentLength} characters left`;
-  observeBoxShadow(currentLength);
-});
+  function addQuestionElement(data) {
+    const node = document.querySelector("section.card.hidden");
+    let clone = node.cloneNode(true);
+    clone.classList.remove("hidden");
+    clone.querySelector(".question").innerHTML = data.question_name;
+    clone.querySelector(".answer").innerHTML = data.question_answer;
+    clone.querySelector(".tags").innerHTML = `<li>#${data.question_tags}</li>`;
+    document.querySelector("section.wrapper").append(clone);
+  }
 
-textAreaAnswer.addEventListener("input", (event) => {
-  let currentLength = event.target.value.length;
-  logOutputAnswer.innerHTML = `${150 - currentLength} characters left`;
-  observeBoxShadow(currentLength);
-});
+  textAreaQuestion.addEventListener("input", (event) => {
+    let currentLength = event.target.value.length;
+    logOutputQuestion.innerHTML = `${150 - currentLength} characters left`;
+    observeBoxShadow(currentLength);
+  });
 
-textAreaQuestion.addEventListener("focusout", () => {
-  logOutputQuestion.innerHTML = "";
-});
+  textAreaAnswer.addEventListener("input", (event) => {
+    let currentLength = event.target.value.length;
+    logOutputAnswer.innerHTML = `${150 - currentLength} characters left`;
+    observeBoxShadow(currentLength);
+  });
 
-textAreaAnswer.addEventListener("focusout", () => {
-  logOutputAnswer.innerHTML = "";
-});
+  textAreaQuestion.addEventListener("focusout", () => {
+    logOutputQuestion.innerHTML = "";
+  });
 
-function observeBoxShadow(stringLength) {
-  if (stringLength >= 100 && stringLength <= 149) {
-    event.target.classList.add("yellow");
-    event.target.classList.remove("red");
-  } else if (stringLength === 150) {
-    event.target.classList.remove("yellow");
-    event.target.classList.add("red");
-  } else {
-    event.target.classList.remove("red", "yellow");
+  textAreaAnswer.addEventListener("focusout", () => {
+    logOutputAnswer.innerHTML = "";
+  });
+
+  function observeBoxShadow(stringLength) {
+    if (stringLength >= 100 && stringLength <= 149) {
+      event.target.classList.add("yellow");
+      event.target.classList.remove("red");
+    } else if (stringLength === 150) {
+      event.target.classList.remove("yellow");
+      event.target.classList.add("red");
+    } else {
+      event.target.classList.remove("red", "yellow");
+    }
   }
 }
