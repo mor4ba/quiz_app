@@ -28,37 +28,47 @@ footer nav li a {
 }
 
 body footer nav li a[href="index.html"] {
-  background-image: url("/quiz_app/assets/project_image/home.png");
+  background-image: url("../project_image/home.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 body.home footer nav li a[href="index.html"] {
-  background-image: url("/quiz_app/assets/project_image/home_filled.png");
+  background-image: url("../project_image/home_filled.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 footer nav li a[href="bookmark.html"] {
-  background-image: url("/quiz_app/assets/project_image/bookmark_transparent.png");
+  background-image: url("../project_image/bookmark_transparent.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 body.bookmark footer nav li a[href="bookmark.html"] {
-  background-image: url("/quiz_app/assets/project_image/bookmark_filled.png");
+  background-image: url("../project_image/bookmark_filled.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 footer nav li a[href="profile.html"] {
-  background-image: url("/quiz_app/assets/project_image/profile.png");
+  background-image: url("../project_image/profile.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 body.profile footer nav li a[href="profile.html"] {
-  background-image: url("/quiz_app/assets/project_image/profile_filled.png");
+  background-image: url("../project_image/profile_filled.png");
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+footer nav li a[href="add.html"] {
+  background-image: url("../project_image/add.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+body.add footer nav li a[href="add.html"] {
+  background-image: url("../project_image/add_filled.png");
 }

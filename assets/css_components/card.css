@@ -1,5 +1,6 @@
 body.home section.card,
-body.bookmark section.card {
+body.bookmark section.card,
+body.add section.card {
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -11,6 +12,7 @@ body.bookmark section.card {
   box-shadow: 0 6px 12px -2px rgba(50, 50, 93, 0.25),
     0 3px 7px -3px rgba(0, 0, 0, 0.3);
   background: var(--primary-color);
+  max-width: 600px;
 }
 
 body.dark section.card {
@@ -38,7 +40,7 @@ section.card .bookmark input {
   cursor: pointer;
 }
 
-section.card .bookmark img {
+section.card .bookmark .backgroundImg {
   width: 100%;
   cursor: pointer;
   height: 100%;
@@ -46,21 +48,13 @@ section.card .bookmark img {
   position: absolute;
   pointer-events: none;
   transition: all 0.15s ease;
+  background-image: url("../project_image/bookmark.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-section.card .bookmark img[src="assets/project_image/bookmark.png"] {
-  opacity: 1;
-}
-
-section.card .bookmark img[src="assets/project_image/bookmark_filled.png"] {
-  opacity: 0;
-}
-
-section.card
-  .bookmark
-  input:checked
-  ~ img[src="assets/project_image/bookmark.png"] {
-  opacity: 0;
+section.card .bookmark input:checked ~ .backgroundImg {
+  background-image: url("../project_image/bookmark_filled.png");
 }
 
 section.card
@@ -81,19 +75,17 @@ section.card .question {
 section.card button.expandTrigger {
   display: inline-block;
   margin: 1rem auto;
-  border: 1px solid var(--primary-dark);
   padding: 0.5em 1.25rem;
   text-align: center;
   cursor: pointer;
   background: var(--tertiary-color);
   border-radius: 20px;
-  border: 1px solid var(--primary-dark);
+  border: 1px solid var(--tertiary-color);
   transition: all 0.2s ease;
   font-family: monospace;
 }
 
-section.card button.expandTrigger:hover,
-section.card button.expandTrigger:focus {
+section.card button.expandTrigger:hover {
   color: var(--primary-white);
   background: var(--primary-dark);
 }
@@ -104,6 +96,7 @@ section.card .expandContent {
   transition: height 0.2s ease;
   display: block;
   padding: 0 1rem;
+  text-align: center;
   margin-bottom: 1rem;
 }
 
@@ -139,4 +132,15 @@ body.dark section.card .tags li {
 section.card .tags li:hover {
   background: var(--primary-white);
   color: var(--primary-dark);
+}
+
+.effect_on {
+  opacity: 0;
+  transition: opacity 0.75s ease, transform 0.8s ease;
+  transform: translateY(100px);
+}
+
+.effect_on.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

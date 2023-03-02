@@ -36,15 +36,65 @@ body.dark {
 
 body.home main,
 body.bookmark main,
-body.profile main {
-  display: flex;
+body.profile main,
+body.add main {
+  display: grid;
+  grid-template-columns: 1fr;
   flex-direction: column;
   gap: 2rem;
+  align-items: center;
   padding: 1.5rem 1.25rem 4.5rem;
   background: var(--primary-white);
+  justify-items: center;
 }
 
 body.dark main {
   background: var(--primary-dark);
   color: var(--primary-white);
+}
+
+button.push-to-top {
+  position: fixed;
+  bottom: 4rem;
+  right: 0.5rem;
+  width: 35px;
+  height: 35px;
+  border: none;
+  background: transparent;
+  animation: bounce 1.75s infinite ease-in-out;
+  cursor: pointer;
+  opacity: 1;
+  pointer-events: auto;
+  transition: 0.25s ease-in;
+}
+
+button.push-to-top svg {
+  transform: rotate(-135deg);
+  color: var(--primary-dark);
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  fill: currentColor;
+  pointer-events: none;
+}
+
+button.push-to-top.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
 }
