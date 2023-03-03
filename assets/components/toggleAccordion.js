@@ -31,10 +31,15 @@ function toggleAccordion() {
   }
 
   items.forEach((item) => {
-    item.addEventListener("click", (event) => {
-      const content = event.target.nextElementSibling;
+    if (item.getAttribute("listener") == "attached") {
+      return;
+    }
+
+    item.addEventListener("click", () => {
+      const content = item.nextElementSibling;
       const height = content.scrollHeight;
       content.getAttribute("data-expanded");
+      item.setAttribute("listener", "attached");
       if (content.getAttribute("data-expanded") == "false") {
         content.style.height = height + "px";
         item.innerHTML = "hide answer";

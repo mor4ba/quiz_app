@@ -23,7 +23,7 @@ var domObserver = new MutationObserver(function (mutations) {
   mutations.forEach(function (mutation) {
     toggleAccordion();
     new observe();
-    //console.log(mutation);
+    console.log(mutation);
   });
 });
 
